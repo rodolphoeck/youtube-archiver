@@ -13,6 +13,9 @@ jobs:
       contents: read
       id-token: write
       attestations: write
+    env:
+      REGISTRY: index.docker.io
+      IMAGE_NAME: ${{ github.repository }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -42,6 +45,6 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
-          subject-name: rodolphoeck/youtube-archiver
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
