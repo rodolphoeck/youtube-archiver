@@ -5,7 +5,7 @@ FROM alpine:3.20.3
 ARG DUMB_INIT_VERSION=1.2.5
 
 # https://github.com/yt-dlp/yt-dlp/releases
-ARG BUILD_VERSION=2024.09.27
+ARG BUILD_VERSION=2024.10.07
 
 RUN set -x \
  && apk update \
